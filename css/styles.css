@@ -10,3 +10,11 @@
 .contact:hover {
   text-decoration: underline;
 }
+
+.address-container {
+  display: none;
+}
+
+.hover {
+  text-decoration: underline;
+}

@@ -26,11 +26,7 @@ function resetFields() {
     $("input.new-state").val("");
 }
 
-
-
-// user interface logic
-$(document).ready(function() {
-  $("#add-address").click(function() {
+  function addressFields() {
     $("#new-addresses").append('<div class="new-address">' +
                                 '<div class="address-container">' +
                                   '<div class="form-group">' +
@@ -54,6 +50,15 @@ $(document).ready(function() {
                                   '</div>' +
                                  '</div>' +
                                 '</div>');
+  };
+
+// user interface logic
+$(document).ready(function() {
+  $("#add-address").click(function() {
+    addressFields();
+    $(".address-container").fadeIn();
+
+
   });
   $("#new-contact").submit(function(event) {
     event.preventDefault();
@@ -70,7 +75,6 @@ $(document).ready(function() {
       var newAddress = new Address(inputtedType, inputtedStreet, inputtedCity, inputtedState);
       newContact.addresses.push(newAddress)
     });
-    console.log(newContact.addresses);
     $("#contacts").append("<li><span class='contact'>" + newContact.fullName() + "</span></li>");
 
     $(".contact").last().click(function () {
@@ -81,6 +85,9 @@ $(document).ready(function() {
       $("ul#addresses").text("");
       newContact.addresses.forEach(function(address) {
         $("ul#addresses").append("<li>" + address.fullAddress() + "</li>");
+        $("#addresses li").hover(function() {
+          $(this).addClass("hover");
+        });
       });
     });
     $(".address-container").parent().remove();
