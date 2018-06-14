@@ -1,6 +1,8 @@
 # Address Book App
 A project for Epicodus **04.02.18**
 
+## By Bobby Martin
+
 ## Description
 This project is an example for obtained jQuery knowledge
 
